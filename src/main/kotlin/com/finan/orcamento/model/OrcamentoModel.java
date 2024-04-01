@@ -3,7 +3,6 @@ package com.finan.orcamento.model;
 import com.finan.orcamento.model.enums.IcmsEstados;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.jetbrains.annotations.NotNull;
 
@@ -62,7 +61,6 @@ public class OrcamentoModel implements Serializable {
 
 
     public BigDecimal getValorOrcamento() {
-        simularDelay();
         return valorOrcamento;
     }
 
@@ -75,7 +73,6 @@ public class OrcamentoModel implements Serializable {
 
 
     public BigDecimal getValorICMS() {
-        simularDelay();
         return valorICMS;
     }
 
@@ -102,13 +99,5 @@ public class OrcamentoModel implements Serializable {
     public void calcularIcms() {
         this.valorICMS = this.icmsEstados.getStrategy().calcular(this.valorOrcamento);
     }
-
-    private void simularDelay(){
-        try{
-            Thread.sleep(3000);
-        } catch(InterruptedException e){
-            e.printStackTrace();
-        }
-    }  
 
 }
