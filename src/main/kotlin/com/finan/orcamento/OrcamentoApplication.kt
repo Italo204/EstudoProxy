@@ -1,5 +1,3 @@
-package com.finan.orcamento
-
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
@@ -7,5 +5,5 @@ import org.springframework.boot.runApplication
 class OrcamentoApplication
 
 fun main(args: Array<String>) {
-	runApplication<OrcamentoApplication>(*args)
+    runApplication<OrcamentoApplication>(*args)
 }
