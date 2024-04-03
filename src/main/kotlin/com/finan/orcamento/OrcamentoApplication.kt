@@ -1,9 +1,10 @@
-import org.springframework.boot.autoconfigure.SpringBootApplication
-import org.springframework.boot.runApplication
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.SpringApplication;
 
 @SpringBootApplication
-class OrcamentoApplication
+public class OrcamentoApplication {
 
-fun main(args: Array<String>) {
-    runApplication<OrcamentoApplication>(*args)
+    public static void main(String[] args) {
+        SpringApplication.run(OrcamentoApplication.class, args);
+    }
 }
