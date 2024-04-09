@@ -1,28 +1,34 @@
 package com.finan.orcamento.service;
 
 import com.finan.orcamento.model.OrcamentoModel;
-import com.finan.orcamento.model.UsuarioModel;
 import com.finan.orcamento.repositories.OrcamentoRepository;
+import lombok.Setter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
 
+
 @Service
 public class OrcamentoService {
-    @Autowired
+
+
     private OrcamentoRepository orcamentoRepository;
+
+    @Autowired
+    public void setOrcamentoRepository(OrcamentoRepository orcamentoRepository) {
+        this.orcamentoRepository = orcamentoRepository;
+    }
+
 
     public List<OrcamentoModel> buscarCadastro(){
         return orcamentoRepository.findAll();
     }
 
     public OrcamentoModel buscaId(Long id){
-        Optional<OrcamentoModel>obj= orcamentoRepository.findById(id);
+        Optional<OrcamentoModel> obj= orcamentoRepository.findById(id);
         if (obj.isPresent()) {
             return obj.get();
         } else {
@@ -50,7 +56,8 @@ public class OrcamentoService {
         orcamentoRepository.deleteById(id);
     }
 
-    
+
+
 
     //funções
     //Função calcula ICMS
