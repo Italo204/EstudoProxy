@@ -1,7 +1,6 @@
 package com.finan.orcamento.controller;
 
 import com.finan.orcamento.model.UsuarioModel;
-import com.finan.orcamento.repositories.UsuarioRepository;
 import com.finan.orcamento.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,8 +14,6 @@ import java.util.List;
 public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
-    @Autowired
-    private UsuarioRepository usuarioRepository;
 
     @GetMapping
     public ResponseEntity<List<UsuarioModel>>BuscaTodosUsuarios(){
