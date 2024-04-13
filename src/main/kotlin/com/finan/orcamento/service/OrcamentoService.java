@@ -1,36 +1,33 @@
 package com.finan.orcamento.service;
-
 import com.finan.orcamento.model.OrcamentoModel;
 import com.finan.orcamento.repositories.OrcamentoRepository;
-import lombok.Setter;
 
+import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.util.List;
 import java.util.Optional;
-
 
 
 @Service
 public class OrcamentoService {
 
-
-    private OrcamentoRepository orcamentoRepository;
-
     @Autowired
-    public void setOrcamentoRepository(OrcamentoRepository orcamentoRepository) {
-        this.orcamentoRepository = orcamentoRepository;
-    }
+    private OrcamentoRepository orcamentoRepository;
 
 
     public List<OrcamentoModel> buscarCadastro(){
         return orcamentoRepository.findAll();
     }
 
+    @Transactional
     public OrcamentoModel buscaId(Long id){
         Optional<OrcamentoModel> obj= orcamentoRepository.findById(id);
         if (obj.isPresent()) {
-            return obj.get();
+            OrcamentoModel orcamentoModel = obj.get();
+            return orcamentoModel;
         } else {
             throw new RuntimeException("Orçamento não encontrado");
         }

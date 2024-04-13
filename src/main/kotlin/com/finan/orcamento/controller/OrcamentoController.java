@@ -1,8 +1,9 @@
 package com.finan.orcamento.controller;
-
 import com.finan.orcamento.model.OrcamentoModel;
-import com.finan.orcamento.repositories.Proxy.OrcamentoProxy;
+import com.finan.orcamento.repositories.OrcamentoRepository;
 import com.finan.orcamento.service.OrcamentoService;
+import com.finan.orcamento.service.Proxy.OrcamentoProxy;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,8 +17,11 @@ public class OrcamentoController {
     @Autowired
     private OrcamentoService orcamentoService;
     @Autowired
+    private OrcamentoRepository orcamentoRepository;
+    @Autowired
     private OrcamentoProxy orcamentoProxy;
 
+    
     @GetMapping
     public ResponseEntity<List<OrcamentoModel>>buscaTodosOrcamentos(){
         return ResponseEntity.ok(orcamentoService.buscarCadastro());

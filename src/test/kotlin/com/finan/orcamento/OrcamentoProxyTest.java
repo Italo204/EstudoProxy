@@ -11,8 +11,8 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.finan.orcamento.model.OrcamentoModel;
-import com.finan.orcamento.repositories.Proxy.OrcamentoProxy;
 import com.finan.orcamento.service.OrcamentoService;
+import com.finan.orcamento.service.Proxy.OrcamentoProxy;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

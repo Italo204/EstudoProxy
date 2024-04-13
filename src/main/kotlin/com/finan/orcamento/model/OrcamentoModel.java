@@ -1,16 +1,19 @@
 package com.finan.orcamento.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.finan.orcamento.model.enums.IcmsEstados;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.jetbrains.annotations.NotNull;
+import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
 
 @ToString
+@Component
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -33,6 +36,15 @@ public class OrcamentoModel implements Serializable {
     @ManyToOne
     @JoinColumn(name="usuario_id", referencedColumnName = "id")
     private UsuarioModel usuario;
+
+    
+    @Column(name="qtd_itens")
+    @JsonProperty("qtd_itens")
+    private BigDecimal qtd_itens;
+
+    @Column(name="desconto_orcamento")
+    @JsonProperty("desconto_orcamento")
+    private BigDecimal descontoOrcamento;
 
       
 
